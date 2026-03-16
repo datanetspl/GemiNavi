@@ -108,6 +108,3 @@ The application can be configured through several files:
 - **`client/js/config/config.js`**: Client-side settings for WebSocket URLs and media constraints.
 - **`package.json`**: Electron build and startup scripts.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
