@@ -1,0 +1,215 @@
+:root {
+    --bg-color: #1a1a1a;
+    --button-bg: #2d2d2d;
+    --button-hover: #3d3d3d;
+    --text-color: #ffffff;
+    --accent-color: #4CAF50;
+    --danger-color: #ff4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.app-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.browser-controls {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    background: #2a2a2a;
+    border-bottom: 1px solid #444;
+    align-items: center;
+    z-index: 1002;
+}
+
+.browser-controls button {
+    background: #3d3d3d;
+    border: 1px solid #555;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.browser-controls button:hover {
+    background: #555;
+}
+
+.browser-url-input {
+    flex-grow: 1;
+    min-width: 100px;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#browserGoBtn {
+    background: #007bff;
+    color: white;
+    border: none;
+}
+
+.disconnect-btn, .connect-btn {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    z-index: 1000;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.mic-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: var(--button-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 1005; /* Always on top */
+    position: absolute;
+    bottom: 30px;
+    right: 25px;
+}
+
+.camera-btn, .screen-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--button-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1005;
+    position: absolute;
+    right: 30px;
+}
+
+.camera-btn { bottom: 160px; }
+.screen-btn { bottom: 100px; }
+
+.mic-btn.active, .camera-btn.active, .screen-btn.active {
+    background-color: var(--accent-color);
+}
+
+.visualizer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    z-index: 1;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.settings-btn {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    padding: 10px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1005;
+}
+
+.chat-history {
+    position: absolute;
+    top: 130px;
+    left: 10px;
+    right: 10px;
+    bottom: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+}
+
+.chat-message {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    max-width: 85%;
+}
+
+.user-message { background: #2c5282; align-self: flex-end; }
+.model-message { background: #2d3748; align-self: flex-start; }
+
+.text-input-container {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    right: 90px;
+    display: flex;
+    z-index: 1005;
+}
+
+.settings-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    z-index: 2000;
+}
+
+.settings-dialog.active { display: block; }
+
+.settings-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 1999;
+}
+
+.settings-overlay.active { display: block; }

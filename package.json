@@ -1,0 +1,51 @@
+{
+  "name": "geminavi",
+  "version": "1.0.0",
+  "main": "server/main.js",
+  "author": "Open Source Community",
+  "license": "",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build",
+    "build:win": "electron-builder build --win",
+    "build:mac": "electron-builder build --mac",
+    "build:linux": "electron-builder build --linux"
+  },
+  "devDependencies": {
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.geminavi.app",
+    "productName": "GemiNavi",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "client/**/*",
+      "server/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "Utility"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    }
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.39.0"
+  }
+}
