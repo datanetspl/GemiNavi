@@ -9,7 +9,7 @@ The application is split into three main parts:
 - **Main Process (Electron/Node.js)**: Manages the application lifecycle, IPC (Inter-Process Communication), and provides access to system-level features like screen capturing and browser control.
 - **Renderer Process (Client/UI)**: The frontend user interface that captures microphone and camera input, displays the conversation status, and executes "tools" (like navigating or clicking) by communicating with the Main process.
 
-![Architecture Diagram](architecture-diagram.svg)
+![Architecture Diagram](Architecture.png)
 
 ---
 
